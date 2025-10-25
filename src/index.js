@@ -1,8 +1,9 @@
-import { dotenv } from "dotenv"; 
+import pkg from 'dotenv';
+const dotenv = pkg;
 import mongoose from "mongoose";
-import { DB_NAME } from "./constant";
+import { DB_NAME } from "./constant.js";
 import express from "express";
-import connectDB from "./db";
+import connectDB from "./db/index.js"
 dotenv.config({
     path: './env'
 })
