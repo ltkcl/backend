@@ -1,12 +1,13 @@
-import pkg from 'dotenv';
-const dotenv = pkg;
+import dotenv from 'dotenv';
+dotenv.config({
+    path: '.env',
+    debug: 'true'
+});
 import mongoose from "mongoose";
 import { DB_NAME } from "./constant.js";
 import express from "express";
 import connectDB from "./db/index.js"
-dotenv.config({
-    path: './env'
-})
+
 const app = express();
  connectDB()
  .then(()=>{
