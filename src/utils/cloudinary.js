@@ -8,7 +8,7 @@ cloudinary.config({
 });
 const uploadCloudinary = async(localFile)=>{
     try{
-        if(!localFile) return null        
+        if(!localFile) return console.log("the files are not there");
         const response = await cloudinary.uploader.upload(localFile,{
             resource_type: auto,
         });
