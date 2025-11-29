@@ -7,8 +7,7 @@ import mongoose from "mongoose";
 import { DB_NAME } from "./constant.js";
 import express from "express";
 import connectDB from "./db/index.js"
-
-const app = express();
+import app from './app.js';
  connectDB()
  .then(()=>{
        app.listen(process.env.PORT||8000,()=>{
@@ -17,4 +16,4 @@ const app = express();
  })
  .catch((err)=>{
     console.log("MongoDB connection error !!",err);
- });
+ }); 
