@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "learning backend with chai with code",
   "license": "ISC",
-  "author": "Kishore Chadra Lenka",
+  "author": "Kishore Chandra Lenka",
   "type": "module",
   "main": "index.js",
   "scripts": {

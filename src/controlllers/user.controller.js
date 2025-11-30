@@ -15,18 +15,21 @@ import { ApiResponse } from "../utils/ApiResponse.js";
     })
     if(existedUser){
         throw new ApiError(409,"User with email or username already exists");
-    }    
+    }  
+    console.log(req.files);
     const avatarLocalPath = req.files?.avatar[0]?.path;
-    const coverImageLocalPath = req.files?.coverImage[0]?.path;
+    const coverImageLocalPath = req.files?.coverImage[0]?.path;    
     if(!avatarLocalPath){
         throw new ApiError(400,"Avatar is required ");
     }
-    console.log(req.files);
+    
     const avatar = await uploadCloudinary(avatarLocalPath);
     const coverImage = await uploadCloudinary(coverImageLocalPath);
+    console.log(avatar);
     if(!avatar){                        
         throw new ApiError(400,"Avatar is required")
     }  
+     
     const user = await User.create({
         fullname,
         avatar: avatar.url,
@@ -34,7 +37,7 @@ import { ApiResponse } from "../utils/ApiResponse.js";
         email,
         password,
         username: username.toLowerCase()
-    })
+    })  
     const createUser = await User.findById(user._id);
     if(!createUser){
         throw new ApiError(500,"Something went wrong while registering the user");
