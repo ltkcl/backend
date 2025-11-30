@@ -46,4 +46,7 @@ import { ApiResponse } from "../utils/ApiResponse.js";
         new ApiResponse(200,createUser,"User registered successfully ")
     );
  })
-export {registerUser};
+ const loginUser = asyncHandler((req,res)=>{
+    
+ })
+export {registerUser,loginUser};
